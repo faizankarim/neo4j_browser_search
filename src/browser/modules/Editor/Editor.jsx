@@ -146,8 +146,7 @@ export class Editor extends Component {
     var cmd_search = 'CALL ga.es.queryNode(\'{"from":0, "size":10, "query":{"multi_match":{"query":"' + this.getEditorValue() + '", "fields" : ["name", "description", "subject_1", "subject_2"]}}}\') YIELD node, score\n' +
       'CALL ga.es.queryRelationship(\'{"from":0, "size":10, "query":{"multi_match":{"query":"' + this.getEditorValue() + '", "fields" : ["name", "description", "subject_1", "subject_2"]}}}\') YIELD relationship\n' +
       'RETURN node, relationship, score'
-    var cmd_search_node = 'CALL ga.es.queryNode(\'{"from":0, "size":100, "query":{"multi_match":{"query":"' + this.getEditorValue() + '", "fields" : ["name", "subject_1", "subject_2"], "fuzziness": "AUTO"}}}\') YIELD node, score\n' +
-      'RETURN node, score'
+    var cmd_search_node = 'CALL ga.es.queryNode(\'{"from":0,"size":100,"query":{"multi_match":{"query":"' + this.getEditorValue() + '","fields":["name", "subject_1", "subject_2"],"fuzziness": 1}}}\') YIELD node, score RETURN node, score'
     console.log('fuzzy: ', cmd_search_fuzzy)
     console.log('exact: ', cmd_search)
     // this.execCommand(this.getEditorValue())
