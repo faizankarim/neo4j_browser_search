@@ -3,7 +3,7 @@ version: "3"
 services:
   neo4j_browser_image:
     build: .
-    container_name: "neo4j_browser_image_url"
+    container_name: "neo4j_browser_search"
     ports:
       - 8081:8080
     command: ['yarn', 'start']
